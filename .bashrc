@@ -114,7 +114,7 @@ fi
 
 alias clock="tty-clock -c -t -C 4"
 alias battery="acpi"
-alias spotify="/home/logan/./sconsify -web-api"
-alias space="/home/logan/./space.sh"
-alias pipes="/home/logan/./pipes.sh"
+alias spotify="/home/logan/Scripts/./sconsify -web-api"
+alias space="/home/logan/Scripts/./space.sh"
+alias pipes="/home/logan/Scripts/./pipes.sh"
 wal -r 
