@@ -117,3 +117,4 @@ alias battery="acpi"
 alias spotify="/home/logan/./sconsify -web-api"
 alias space="/home/logan/./space.sh"
 alias pipes="/home/logan/./pipes.sh"
+wal -r 
