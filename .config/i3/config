@@ -4,7 +4,7 @@ exec --no-startup-id ~/bin/clean_tmp
 
 exec --no-startup-id xrandr --output Virtual1 --mode 1440x900
 
-exec_always feh --bg-scale /home/logan/Pictures/Q45T2Qu.jpg
+exec_always feh --bg-scale /home/logan/Pictures/bridge.jpg
 
 exec --no-startup-id i3-msg workspace $work1
 
@@ -14,7 +14,7 @@ exec_always --no-startup-id compton --config /home/logan/.config/compton.conf -b
 
 exec_always --no-startup-id xrdb /home/logan/.Xresources
 
-wal -i "$(< "${HOME}/.cache/wal/wal")"
+exec_always wal -i "$(< "${HOME}/.cache/wal/wal")"
 
 
 set $mod Mod4
@@ -164,20 +164,37 @@ gaps outer 5
 
 # Color scheme:
 
-set $dark_base      #2E3440
-set $dark_accent    #6c5b7b
-set $light_accent   #c06c84
+set $dark_base      #212a29
+set $dark_accent    #2d3938
+set $light_accent   #384746
 
 # Windows Colors:
+#
+#  # class                   border           backgr.           text        indicator         child_border
+#  client.focused            $dark_base       $dark_base        #ffffff     $dark_base        $light_accent
+#  client.focused_inactive   $dark_base       $dark_base        #ffffff     $dark_base        $dark_accent
+#  client.unfocused          $dark_base       $dark_base        $dark_base  $dark_base        $dark_accent
+#  client.urgent             $dark_base       $dark_base        #ffffff     $dark_accent      $light_accent
+#  client.placeholder        #000000          $dark_base        #ffffff     #000000           $light_accent
 
-  # class                   border           backgr.           text        indicator         child_border
-  client.focused            #4c7899          $light_accent     #ffffff     $light_accent     $light_accent
-  client.focused_inactive   $dark_base       $dark_base        #ffffff     $dark_base        $dark_accent
-  client.unfocused          $dark_base       $dark_base        #888888     $dark_base        $dark_accent
-  client.urgent             #2f343a          $dark_base        #ffffff     $dark_accent      $light_accent
-  client.placeholder        #000000          $dark_base        #ffffff     #000000           $light_accent
+#  client.background       $dark_base
 
-  client.background       $light_accent
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources for some reason.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #384746
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 floating_minimum_size 100 x 100
 floating_maximum_size 1200 x 800
