@@ -12,8 +12,8 @@ Xft.lcdfilter: lcddefault
 
 rofi.font: Roboto-Regular 20
 rofi.opacity: 90
-rofi.color-window: #2E3440, #c06c84, #6c5b7b
-rofi.color-normal: argb:008101218, #6c5b7b, argb:00c06c84, argb:20101218, #c06c84
+rofi.color-window: #212a29, #2d3938, #384746
+rofi.color-normal: #212a29, #ffffff, #212a29, #384746, #ffffff
 rofi.lines: 3
 rofi.bw: 3
 
