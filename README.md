@@ -1,6 +1,6 @@
 Personal dotfiles, gathered from various resources
 
-![Alt text](neofetch-2017-01-14-12-26-55-29992.png?raw=true)
+![fake](fake.png?raw=true)
 
 
 ## Installation
