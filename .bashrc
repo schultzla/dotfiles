@@ -114,7 +114,6 @@ fi
 
 alias clock="tty-clock -c -t -C 4"
 alias battery="acpi"
-alias spotify="/home/logan/Scripts/./sconsify -web-api"
 alias drive="df -h /home"
 alias matrix="cmatrix -s"
 alias space="/home/logan/Scripts/./space.sh"
