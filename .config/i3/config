@@ -2,9 +2,7 @@
 
 exec --no-startup-id ~/bin/clean_tmp
 
-exec --no-startup-id xrandr --output Virtual1 --mode 1440x900
-
-exec_always feh --bg-scale /home/logan/Pictures/bridge.jpg
+exec --no-startup-id xrandr --output Virtual1 --mode 1600x900
 
 exec --no-startup-id i3-msg workspace $work1
 
@@ -14,7 +12,11 @@ exec_always --no-startup-id compton --config /home/logan/.config/compton.conf -b
 
 exec_always --no-startup-id xrdb /home/logan/.Xresources
 
-exec_always wal -i "$(< "${HOME}/.cache/wal/wal")"
+exec_always ~/Pictures/./wal -i "$(< "${HOME}/.cache/wal/wal")"
+
+#exec_always ~/Pictures/./wal -i ~/Pictures/bridge.jpg
+
+#exec_always polybar top
 
 
 set $mod Mod4
@@ -217,10 +219,5 @@ for_window [window_type="menu"] floating enable
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-
-#screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
