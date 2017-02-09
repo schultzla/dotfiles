@@ -112,10 +112,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias clock="tty-clock -c -t -C 4"
+export PS1="\w\n\[\e]2;\u@\H \w\a\e[32;1m\]╚═\[\e[0m\] "
+
+alias clock="tty-clock -c -t"
 alias battery="acpi"
 alias drive="df -h /home"
 alias matrix="cmatrix -s"
+alias test="~/Scripts/./speedtest"
+alias pacman="~/Scripts/color-scripts/color-scripts/./pacman"
+alias eclipse="~/.eclipse/eclipse/./eclipse"
 alias space="/home/logan/Scripts/./space.sh"
 alias pipes="/home/logan/Scripts/./pipes.sh"
 alias pokemon="mednafen ~/Pokemon/pokemon.gb"
