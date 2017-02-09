@@ -2,7 +2,7 @@
 
 exec --no-startup-id ~/bin/clean_tmp
 
-exec --no-startup-id xrandr --output Virtual1 --mode 1600x900
+exec --no-startup-id xrandr --output HDMI-1 --auto --right-of eDP-1
 
 exec --no-startup-id i3-msg workspace $work1
 
@@ -12,9 +12,15 @@ exec_always --no-startup-id compton --config /home/logan/.config/compton.conf -b
 
 exec_always --no-startup-id xrdb /home/logan/.Xresources
 
-exec_always ~/Pictures/./wal -i "$(< "${HOME}/.cache/wal/wal")"
+#exec_always --no-startup-id ~/Pictures/./wal -i "$(< "${HOME}/.cache/wal/wal")"
 
-#exec_always ~/Pictures/./wal -i ~/Pictures/bridge.jpg
+#exec_always xautolock -time 10 -locker lock
+
+exec_always --no-startup-id mopidy
+
+#exec_always xset s off
+
+exec_always --no-startup-id ~/Pictures/./wal -i ~/Pictures/fall.jpg
 
 #exec_always polybar top
 
@@ -41,6 +47,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt
 
+#Lock
+bindsym $mod+l exec lock
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -54,7 +63,7 @@ bindsym $mod+d exec rofi -i -show run
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+#bindsym $mod+l focus up
 bindsym $mod+ntilde focus right
 
 # alternatively, you can use the cursor keys:
@@ -66,7 +75,7 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+l move up
 bindsym $mod+Shift+ntilde move right
 
 # alternatively, you can use the cursor keys:
@@ -158,11 +167,11 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+#bindsym $mod+r mode "resize"
 
 #Gaps
-gaps inner 10
-gaps outer 5
+gaps inner 20
+gaps outer 10
 
 # Color scheme:
 
@@ -191,10 +200,10 @@ set_from_resource $bg i3wm.color2 #384746
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       #0B0D2B
+client.unfocused        $bg     $bg     $fg  $bg       #0B0D2B
+client.urgent           $bg     $bg     $fg  $bg       #0B0D2B
+client.placeholder      $bg     $bg     $fg  $bg       #0B0D2B
 
 client.background       $bg
 
@@ -217,7 +226,10 @@ for_window [window_type="menu"] floating enable
 
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
+
+#scrot using print screen
+bindsym Print exec scrot '%m-%d.png' -e 'mv $f ~/Pictures/reddit/'
