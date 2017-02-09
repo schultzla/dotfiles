@@ -26,6 +26,16 @@ URxvt.foreground: #FFFFFF
 URxvt*font: xft:Iosevka:pixelsize=12:antialias=true
 URxvt*cursorUnderline: true
 
+URxvt.internalBorder: 15
+URxvt*lineSpace: 2
+URxvt*scrollColor: #131415
+URxvt*saveLines: 1000
+URxvt*cursorColor: #AADB0F
+URxvt*cursorBlink: true
+URxvt*underlineColor: #303030
+URxvt*allow_bold: true
+URxvt.geometry: 80x18
+
 ! Clipboar2
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
